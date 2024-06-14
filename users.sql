@@ -43,12 +43,12 @@ CREATE TABLE IF NOT EXISTS `users` (
 
 INSERT INTO `users` (`id`, `username`, `email`, `role`, `password`) VALUES
 (2, 'mathis', 'mathis@cesi.fr', 'admin', 'aa3d2fe4f6d301dbd6b8fb2d2fddfb7aeebf3bec53ffff4b39a0967afa88c609'),
-(11, 'idontknow', 'idontknow@cesi.fr', 'admin', 'aa3d2fe4f6d301dbd6b8fb2d2fddfb7aeebf3bec53ffff4b39a0967afa88c609'),
+(11, 'idontknow', 'idontknow@cesi.fr', 'user', 'aa3d2fe4f6d301dbd6b8fb2d2fddfb7aeebf3bec53ffff4b39a0967afa88c609'),
 (7, 'André', 'andredu12@jaimelesfraise.com', 'user', 'aa3d2fe4f6d301dbd6b8fb2d2fddfb7aeebf3bec53ffff4b39a0967afa88c609'),
 (8, 'yes', 'yes@cesi.fr', 'user', 'aa3d2fe4f6d301dbd6b8fb2d2fddfb7aeebf3bec53ffff4b39a0967afa88c609'),
 (9, 'no', 'no@cesi.fr', 'user', 'aa3d2fe4f6d301dbd6b8fb2d2fddfb7aeebf3bec53ffff4b39a0967afa88c609'),
 (10, 'maybe', 'maybe@cesi.fr', 'user', 'aa3d2fe4f6d301dbd6b8fb2d2fddfb7aeebf3bec53ffff4b39a0967afa88c609'),
-(12, 'canyourepeat', 'canyourepeat@cesi.fr', 'admin', 'aa3d2fe4f6d301dbd6b8fb2d2fddfb7aeebf3bec53ffff4b39a0967afa88c609'),
+(12, 'canyourepeat', 'canyourepeat@cesi.fr', 'user', 'aa3d2fe4f6d301dbd6b8fb2d2fddfb7aeebf3bec53ffff4b39a0967afa88c609'),
 (13, 'thequestion?', 'thequestion?@cesi.fr', 'user', 'aa3d2fe4f6d301dbd6b8fb2d2fddfb7aeebf3bec53ffff4b39a0967afa88c609');
 COMMIT;
 

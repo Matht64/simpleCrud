@@ -43,7 +43,7 @@
             <h1 class="box-title">Add user</h1>
             <input type="text" class="box-input" name="username" placeholder="Nom d'utilisateur" required />
 
-            <input type="text" class="box-input" name="email" placeholder="Email" required />
+            <input type="email" class="box-input" name="email" placeholder="Email" required />
 
             <div>
                 <select class="box-input" name="role" id="role">
@@ -53,7 +53,7 @@
                 </select>
             </div>
 
-            <input type="password" class="box-input" name="password" placeholder="Mot de passe" required />
+            <input type="password" class="box-input" name="password" placeholder="Mot de passe" minlength="8" required />
 
             <input type="submit" name="submit" value="+ Add" class="box-button" />
         </form>

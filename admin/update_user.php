@@ -47,7 +47,7 @@
             </h1>
             <h1 class="box-title">Add user</h1>
             <input type="text" class="box-input" name="username" value="<?php echo $user['username']?>" required />
-            <input type="text" class="box-input" name="email" value="<?php echo $user['email']?>" required />
+            <input type="email" class="box-input" name="email" value="<?php echo $user['email']?>" required />
             <div>
                 <select class="box-input" name="role" id="role">
                     <option value="" disabled selected>Role</option>
