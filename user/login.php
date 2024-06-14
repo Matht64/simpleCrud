@@ -25,9 +25,10 @@
 
         if (mysqli_num_rows($result) == 1) {
             $user = mysqli_fetch_assoc($result);
+            $_SESSION['role'] = $user['role'];
             // vérifier si l'utilisateur est un administrateur ou un utilisateur
             if ($user['role'] == 'admin') {
-                header('location: admin/home.php');
+                header('location: ../admin/home.php');
             } else {
                 header('location: index.php');
             }
@@ -41,9 +42,9 @@
             <a href="index.php">Monsupercrud</a>
         </h1>
         <h1 class="box-title">Connexion</h1>
-        <input role="text" class="box-input" name="username" placeholder="Nom d'utilisateur">
-        <input role="password" class="box-input" name="password" placeholder="Mot de passe">
-        <input role="submit" value="Connexion" name="submit" class="box-button">
+        <input type="text" class="box-input" name="username" placeholder="Nom d'utilisateur">
+        <input type="password" class="box-input" name="password" placeholder="Mot de passe">
+        <input type="submit" value="Connexion" name="submit" class="box-button">
         <p class="box-register">Vous êtes nouveau ici?
             <a href="register.php">S'inscrire</a>
         </p>

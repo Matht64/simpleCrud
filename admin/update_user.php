@@ -1,3 +1,10 @@
+<?php
+    require ('../config.php');
+
+    $user_id = stripslashes($_GET['id']);
+    $sql = "SELECT * FROM users where id = $user_id";
+    $user = mysqli_fetch_assoc(mysqli_query($conn, $sql));
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,29 +15,27 @@
 </head>
 <body>
     <?php
-    require ('../config.php');
 
-    if (isset($_REQUEST['username'], $_REQUEST['email'], $_REQUEST['role'], $_REQUEST['password'])) {
+    if (isset($_REQUEST['username'], $_REQUEST['email'], $_REQUEST['role'])) {
         // récupérer le nom d'utilisateur 
         $username = stripslashes($_REQUEST['username']);
         $username = mysqli_real_escape_string($conn, $username);
         // récupérer l'email 
         $email = stripslashes($_REQUEST['email']);
         $email = mysqli_real_escape_string($conn, $email);
-        // récupérer le mot de passe 
-        $password = stripslashes($_REQUEST['password']);
-        $password = mysqli_real_escape_string($conn, $password);
         // récupérer le role (user | admin)
         $role = stripslashes($_REQUEST['role']);
         $role = mysqli_real_escape_string($conn, $role);
 
-        $query = "INSERT into `users` (username, email, role, password)
-          VALUES ('$username', '$email', '$role', '" . hash('sha256', $password) . "')";
+        $id = $user['id'];
+
+        $query = "UPDATE `users` set username='$username', email='$email', role='$role'
+        where id = $id";
         $res = mysqli_query($conn, $query);
 
         if ($res) {
             echo "<div class='success'>
-             <h3>L'utilisateur a été créée avec succés.</h3>
+             <h3>L'utilisateur a été modifié avec succès.</h3>
              <p>Cliquez <a href='home.php'>ici</a> pour retourner à la page d'accueil</p>
        </div>";
         }
@@ -41,10 +46,8 @@
                 <a href="home.php">Monsupercrud</a>
             </h1>
             <h1 class="box-title">Add user</h1>
-            <input type="text" class="box-input" name="username" placeholder="Nom d'utilisateur" required />
-
-            <input type="text" class="box-input" name="email" placeholder="Email" required />
-
+            <input type="text" class="box-input" name="username" value="<?php echo $user['username']?>" required />
+            <input type="text" class="box-input" name="email" value="<?php echo $user['email']?>" required />
             <div>
                 <select class="box-input" name="role" id="role">
                     <option value="" disabled selected>Role</option>
@@ -52,10 +55,7 @@
                     <option value="admin">Admin</option>
                 </select>
             </div>
-
-            <input type="password" class="box-input" name="password" placeholder="Mot de passe" required />
-
-            <input type="submit" name="submit" value="+ Add" class="box-button" />
+            <input type="submit" name="submit" value="Update" class="box-button" />
         </form>
     <?php } ?>
 </body>
