@@ -8,7 +8,7 @@ if (!isset($_SESSION["username"])) {
     exit();
 }
 
-$sql= "SELECT * FROM users";
+$sql= "SELECT * FROM users ORDER BY id";
 $result=mysqli_query($conn, $sql);
 
 ?>
@@ -25,6 +25,10 @@ $result=mysqli_query($conn, $sql);
     <div class="success">
         <h1>Bienvenue <?php echo $_SESSION['username']; ?> !</h1>
         <p>C'est votre espace admin. <a href='../user/index.php'>-> Espace utilisateur</a></p>
+        <p>
+            <a href="add_user.php">Add user</a> |
+            <a href="../user/logout.php">Déconnexion</a>
+        </p>
         <table>
             <thead>
                 <tr>
@@ -42,8 +46,8 @@ $result=mysqli_query($conn, $sql);
                     <td data-label="Email : "> <?php echo $row['email']; ?></td>
                     <td data-label="Role : "> <?php echo $row['role']; ?></td>
                     <td  data-label="Options : ">
-                        <a href="update_user.php?id=<?php echo $row['id']; ?>">Update user</a></br>
-                        <a href="delete_user.php?id=<?php echo $row['id']; ?>">Delete user</a>
+                        <a href="update_user.php?id=<?php echo $row['id']; ?>"><img src="../images/write.png"></a>
+                        <a href="delete_user.php?id=<?php echo $row['id']; ?>"><img src="../images/remove.png"></a>
                     </td>
                 </tr>
             </tbody>
@@ -51,10 +55,6 @@ $result=mysqli_query($conn, $sql);
                 }
             ?>
         </table>
-        <div class="">
-            <a href="add_user.php">Add user</a> |
-            <a href="../user/logout.php">Déconnexion</a>
-        </div>
     </div>
 </body>
 

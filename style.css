@@ -142,8 +142,17 @@ form input[type="submit"] {
 }
 
 
-
 @media (max-width: 600px) {
+
+  form {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 6px;
+    font-size: 14px;
+  }
 
   table {
     box-shadow: 0 0 0px rgba(0, 0, 0, 0.2);

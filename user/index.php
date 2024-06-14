@@ -18,7 +18,7 @@ if (!isset($_SESSION["username"])) {
 <body>
     <div class="success">
         <h1>Bienvenue <?php echo $_SESSION['username']; ?> !</h1>
-        <p>Bienvenue dans votre espace utilisateur.</p>
+        <p>Voici votre espace utilisateur.</p>
         <?php
             if ($_SESSION["role"] == 'admin'){
                 echo "<a href='../admin/home.php'>-> Espace administrateur</a>";
